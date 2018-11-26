@@ -3,10 +3,8 @@ name: ((cfcr-deployment-name))
 addons:
 - include:
     stemcell:
-    stemcells:
-    - alias: default
-      name: ((bosh-stemcell-name))
-      version: ((bosh-stemcell-version)) 
+    - os: ubuntu-trusty
+    - os: ubuntu-xenial
 
   jobs:
   - name: bosh-dns
