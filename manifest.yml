@@ -206,13 +206,15 @@ releases:
 stemcells:
 - alias: default
   os: ubuntu-xenial
-  version: latest
+  version: ((bosh-stemcell-version))
 update:
   canaries: 1
   canary_watch_time: 10000-300000
   max_in_flight: 1
   update_watch_time: 10000-300000
 variables:
+- name: kubo-admin-password
+  type: password
 - name: kubelet-password
   type: password
 - name: kubelet-drain-password
