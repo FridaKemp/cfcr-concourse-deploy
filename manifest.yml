@@ -79,7 +79,7 @@ instance_groups:
       kubelet-drain-password: ((kubelet-drain-password))
       kubelet-password: ((kubelet-password))
       port: 8443
-      service-account-public-key: ((service-account-key.public_key))
+      service-account-public-key: ((service-account-key-public_key))
       tls:
         kubelet-client: ((tls-kubelet-client))
         kubernetes:
