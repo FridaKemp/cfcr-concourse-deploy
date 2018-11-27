@@ -83,9 +83,9 @@ instance_groups:
       tls:
         kubelet-client: ((tls-kubelet-client))
         kubernetes:
-          ca: ((tls-kubernetes.ca))
-          certificate: ((tls-kubernetes.certificate))
-          private_key: ((tls-kubernetes.private_key))
+          ca: ((tls-kubernetes))
+          certificate: ((tls-kubernetes-certificate))
+          private_key: ((tls-kubernetes-private_key))
     release: kubo
   - name: kube-controller-manager
     properties:
@@ -114,17 +114,17 @@ instance_groups:
         dns_suffix: etcd.cfcr.internal
       tls:
         etcd:
-          ca: ((tls-etcd-v0-17-0.ca))
-          certificate: ((tls-etcd-v0-17-0.certificate))
-          private_key: ((tls-etcd-v0-17-0.private_key))
+          ca: ((tls-etcd-v0-17-0-ca))
+          certificate: ((tls-etcd-v0-17-0-certificate))
+          private_key: ((tls-etcd-v0-17-0-private_key))
         etcdctl:
-          ca: ((tls-etcdctl.ca))
-          certificate: ((tls-etcdctl.certificate))
-          private_key: ((tls-etcdctl.private_key))
+          ca: ((tls-etcdctl-ca))
+          certificate: ((tls-etcdctl-certificate))
+          private_key: ((tls-etcdctl-private_key))
         peer:
-          ca: ((tls-etcd-v0-17-0.ca))
-          certificate: ((tls-etcd-v0-17-0.certificate))
-          private_key: ((tls-etcd-v0-17-0.private_key))
+          ca: ((tls-etcd-v0-17-0-ca))
+          certificate: ((tls-etcd-v0-17-0-certificate))
+          private_key: ((tls-etcd-v0-17-0-private_key))
     release: cfcr-etcd
   - name: smoke-tests
     release: kubo
@@ -167,7 +167,7 @@ instance_groups:
       tls:
         kubelet: ((tls-kubelet))
         kubelet-client-ca:
-          certificate: ((tls-kubelet-client.ca))
+          certificate: ((tls-kubelet-client))
         kubernetes: ((tls-kubernetes))
     release: kubo
   - name: kube-proxy
