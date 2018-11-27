@@ -91,7 +91,7 @@ instance_groups:
     properties:
       api-token: ((kube-controller-manager-password))
       cluster-signing: ((kubo_ca))
-      service-account-private-key: ((service-account-key.private_key))
+      service-account-private-key: ((service-account-key-private_key))
       tls:
         kubernetes: ((tls-kubernetes))
     release: kubo
