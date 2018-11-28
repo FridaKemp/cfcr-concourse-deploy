@@ -114,10 +114,7 @@ instance_groups:
   - name: kube-controller-manager
     properties:
       api-token: ((kube-controller-manager-password))
-      cluster-signing:
-        ca: ((kubo_ca))
-        certificate: ((kubo_ca_certificate))
-        private_key: ((kubo_ca_private_key))
+      cluster-signing: ((kubo_ca))
       service-account-private-key: ((service-account-key-private_key))
       tls:
         kubernetes:
