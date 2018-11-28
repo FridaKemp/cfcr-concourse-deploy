@@ -14,8 +14,12 @@ addons:
           tls: 
             ca: ((dns_api_client_tls))
             certificate: ((dns_api_client_tls_certificate))
+            private_key: ((dns_api_client_tls_private_key))
         server:
-          tls: ((dns_api_server_tls))
+          tls:
+            ca: ((dns_api_server_tls))
+            certificate: ((dns_api_server_tls_certificate))
+            private_key: ((dns_api_server_tls_private_key))
       cache:
         enabled: true
       health:
