@@ -24,10 +24,16 @@ addons:
         enabled: true
       health:
         client:
-          tls: ((dns_healthcheck_client_tls))
+          tls: 
+            ca: ((dns_healthcheck_client_tls))
+            certificate: ((dns_healthcheck_client_tls_certificate))
+            private_key: ((dns_healthcheck_client_tls_private_key))
         enabled: true
         server:
-          tls: ((dns_healthcheck_server_tls))
+          tls:
+            ca: ((dns_healthcheck_server_tls))
+            certificate: ((dns_healthcheck_server_tls_certificate))
+            private_key: ((dns_healthcheck_server_tls_private_key))
     release: bosh-dns
   name: bosh-dns
 - jobs:
