@@ -12,6 +12,7 @@ addons:
       api:
         client:
           tls: ((dns_api_client_tls))
+            certificate: ((dns_api_client_tls_certificate))
         server:
           tls: ((dns_api_server_tls))
       cache:
