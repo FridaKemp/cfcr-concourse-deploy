@@ -117,6 +117,7 @@ instance_groups:
       cluster-signing:
           ca: ((kubo_ca))
           certificate: ((kubo_ca_certificate))
+          private_key: ((kubo_ca_certificate_private_key))
       service-account-private-key: ((service-account-key-private_key))
       tls:
         kubernetes:
