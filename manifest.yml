@@ -59,7 +59,7 @@ instance_groups:
           ca: ((tls-heapster))
           certificate: ((tls-heapster-certificate))
           private_key: ((tls-heapster-private_key))
-        influxdb: ((tls-influxdb))
+        influxdb:
           ca: ((tls-influxdb))
           certificate: ((tls-influxdb-certificate))
           private_key: ((tls-influxdb-private_key))
