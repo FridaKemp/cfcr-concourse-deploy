@@ -58,10 +58,22 @@ instance_groups:
       admin-username: admin
       api-token: ((kubelet-password))
       tls:
-        heapster: ((tls-heapster))
-        influxdb: ((tls-influxdb))
-        kubernetes: ((tls-kubernetes))
-        kubernetes-dashboard: ((tls-kubernetes-dashboard))
+        heapster: 
+          ca: ((tls-heapster))
+          certificate: ((tls-heapster-certificate))
+          private_key: ((tls-heapster-private_key))
+        influxdb: 
+          ca: ((tls-influxdb))
+          certificate: ((tls-influxdb-certificate))
+          private_key: ((tls-influxdb-private_key))
+        kubernetes: 
+          ca: ((tls-kubernetes))
+          certificate: ((tls-kubernetes-certificate))
+          private_key: ((tls-kubernetes-private_key))
+        kubernetes-dashboard:
+          ca: ((tls-kubernetes-dashboard))
+          certificate: ((tls-kubernetes-dashboard-certificate))
+          private_key: ((tls-kubernetes-dashboard-private_key))
         metrics-server: ((tls-metrics-server))
     release: kubo
   lifecycle: errand
@@ -102,23 +114,35 @@ instance_groups:
   - name: kube-controller-manager
     properties:
       api-token: ((kube-controller-manager-password))
-      cluster-signing: ((kubo_ca))
+      cluster-signing:
+        ca: ((kubo_ca))
+        certificate: ((kubo_ca_certificate))
+        private_key: ((kubo_ca_private_key))
       service-account-private-key: ((service-account-key-private_key))
       tls:
-        kubernetes: ((tls-kubernetes))
+        kubernetes:
+          ca: ((tls-kubernetes))
+          certificate: ((tls-kubernetes-certificate))
+          private_key: ((tls-kubernetes-private_key))
     release: kubo
   - name: kube-scheduler
     properties:
       api-token: ((kube-scheduler-password))
       tls:
-        kubernetes: ((tls-kubernetes))
+        kubernetes:
+          ca: ((tls-kubernetes))
+          certificate: ((tls-kubernetes-certificate))
+          private_key: ((tls-kubernetes-private_key))
     release: kubo
   - name: kubernetes-roles
     properties:
       admin-password: ((kubo-admin-password))
       admin-username: admin
       tls:
-        kubernetes: ((tls-kubernetes))
+        kubernetes:
+          ca: ((tls-kubernetes))
+          certificate: ((tls-kubernetes-certificate))
+          private_key: ((tls-kubernetes-private_key))
     release: kubo
   - name: etcd
     properties:
@@ -150,7 +174,7 @@ instance_groups:
   - z1
   - z2
   - z3
-  instances: 1 #3
+  instances: 1
   jobs:
   - name: flanneld
     release: kubo
@@ -177,16 +201,25 @@ instance_groups:
       api-token: ((kubelet-password))
       drain-api-token: ((kubelet-drain-password))
       tls:
-        kubelet: ((tls-kubelet))
+        kubelet:
+          ca: ((tls-kubelet))
+          certificate: ((tls-kubelet-certificate))
+          private_key: ((tls-kubelet-private_key))
         kubelet-client-ca:
           certificate: ((tls-kubelet-client))
-        kubernetes: ((tls-kubernetes))
+        kubernetes:
+          ca: ((tls-kubernetes))
+          certificate: ((tls-kubernetes-certificate))
+          private_key: ((tls-kubernetes-private_key))
     release: kubo
   - name: kube-proxy
     properties:
       api-token: ((kube-proxy-password))
       tls:
-        kubernetes: ((tls-kubernetes))
+        kubernetes:
+          ca: ((tls-kubernetes))
+          certificate: ((tls-kubernetes-certificate))
+          private_key: ((tls-kubernetes-private_key))
     release: kubo
   name: worker
   networks:
