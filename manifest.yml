@@ -127,13 +127,11 @@ instance_groups:
         tls-private-key-file: /var/vcap/jobs/kube-apiserver/config/kubernetes-key.pem
         token-auth-file: /var/vcap/jobs/kube-apiserver/config/tokens.csv
         v: 2
-      #backend_port: 8443
       kube-controller-manager-password: ((kube-controller-manager-password))
       kube-proxy-password: ((kube-proxy-password))
       kube-scheduler-password: ((kube-scheduler-password))
       kubelet-drain-password: ((kubelet-drain-password))
       kubelet-password: ((kubelet-password))
-      port: 8443
       service-account-public-key: ((service-account-key-public_key))
       tls:
         kubelet-client:
