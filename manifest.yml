@@ -83,7 +83,7 @@ instance_groups:
   - z1
   - z2
   - z3
-  instances: 3
+  instances: 1
   jobs:
   - name: bpm
     release: bpm
@@ -225,7 +225,7 @@ instance_groups:
   - z1
   - z2
   - z3
-  instances: 1
+  instances: 3
   jobs:
   - name: flanneld
     release: kubo
