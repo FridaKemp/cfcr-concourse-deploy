@@ -93,7 +93,41 @@ instance_groups:
     properties:
       admin-password: ((kubo-admin-password))
       admin-username: admin
-      backend_port: 8443
+      k8s-args:
+        audit-log-maxage: 0
+        audit-log-maxbackup: 0
+        audit-log-maxsize: 0
+        audit-log-path: /var/vcap/sys/log/kube-apiserver/audit.log
+        audit-policy-file: /var/vcap/jobs/kube-apiserver/config/audit_policy.yml
+        authorization-mode: RBAC
+        client-ca-file: /var/vcap/jobs/kube-apiserver/config/kubernetes.pem
+        disable-admission-plugins: []
+        enable-admission-plugins: []
+        enable-aggregator-routing: true
+        enable-bootstrap-token-auth: true
+        enable-swagger-ui: true
+        etcd-cafile: /var/vcap/jobs/kube-apiserver/config/etcd-ca.crt
+        etcd-certfile: /var/vcap/jobs/kube-apiserver/config/etcd-client.crt
+        etcd-keyfile: /var/vcap/jobs/kube-apiserver/config/etcd-client.key
+        kubelet-client-certificate: /var/vcap/jobs/kube-apiserver/config/kubelet-client-cert.pem
+        kubelet-client-key: /var/vcap/jobs/kube-apiserver/config/kubelet-client-key.pem
+        proxy-client-cert-file: /var/vcap/jobs/kube-apiserver/config/kubernetes.pem
+        proxy-client-key-file: /var/vcap/jobs/kube-apiserver/config/kubernetes-key.pem
+        requestheader-allowed-names: aggregator
+        requestheader-client-ca-file: /var/vcap/jobs/kube-apiserver/config/kubernetes.pem
+        requestheader-extra-headers-prefix: X-Remote-Extra-
+        requestheader-group-headers: X-Remote-Group
+        requestheader-username-headers: X-Remote-User
+        runtime-config: api/v1
+        secure-port: 8443
+        service-account-key-file: /var/vcap/jobs/kube-apiserver/config/service-account-public-key.pem
+        service-cluster-ip-range: 10.100.200.0/24
+        storage-media-type: application/json
+        tls-cert-file: /var/vcap/jobs/kube-apiserver/config/kubernetes.pem
+        tls-private-key-file: /var/vcap/jobs/kube-apiserver/config/kubernetes-key.pem
+        token-auth-file: /var/vcap/jobs/kube-apiserver/config/tokens.csv
+        v: 2
+      #backend_port: 8443
       kube-controller-manager-password: ((kube-controller-manager-password))
       kube-proxy-password: ((kube-proxy-password))
       kube-scheduler-password: ((kube-scheduler-password))
@@ -118,6 +152,17 @@ instance_groups:
           ca: ((kubo_ca))
           certificate: ((kubo_ca_certificate))
           private_key: ((kubo_ca_private_key))
+      k8s-args:
+        cluster-name: kubernetes
+        cluster-signing-cert-file: /var/vcap/jobs/kube-controller-manager/config/cluster-signing-ca.pem
+        cluster-signing-key-file: /var/vcap/jobs/kube-controller-manager/config/cluster-signing-key.pem
+        kubeconfig: /var/vcap/jobs/kube-controller-manager/config/kubeconfig
+        leader-elect: true
+        root-ca-file: /var/vcap/jobs/kube-controller-manager/config/ca.pem
+        service-account-private-key-file: /var/vcap/jobs/kube-controller-manager/config/service-account-private-key.pem
+        terminated-pod-gc-threshold: 100
+        use-service-account-credentials: true
+        v: 2
       service-account-private-key: ((service-account-key-private_key))
       tls:
         kubernetes:
