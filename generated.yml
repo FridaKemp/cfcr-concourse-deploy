@@ -1,0 +1,7 @@
+{
+    "vars_store": {
+        "config": {
+            "kubo-admin-password": "kubo-admin-password"
+        }
+    }
+}
