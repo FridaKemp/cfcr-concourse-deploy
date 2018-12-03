@@ -178,7 +178,7 @@ instance_groups:
   - name: default
   stemcell: default
   vm_type: small-highmem
-name: ((cfcr-deployment-name))
+name: cfcr-test
 releases:
 - name: kubo
   sha1: f9ae87d2def4bf70c2c684711391b405021726c1
