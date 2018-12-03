@@ -3,7 +3,7 @@
 set -e # fail fast
 set -x # print commands
 
-git clone cfcr-concourse-deploy updated-cfcr-concourse-deploy
+git clone cfcr-concourse updated-cfcr-concourse-deploy
 cd updated-cfcr-concourse-deploy
 
 bosh -n deploy -d cfcr-test cfcr-manifest.yml \
