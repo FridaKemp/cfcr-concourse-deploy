@@ -24,7 +24,7 @@ cd cfcr-vars
 cp ../cfcr-concourse/generated.yml .
 #echo $(date) > testme
 
-git config --global user.email "mercedes.kempany@sky.uk"
+git config --global user.email "mercedes.kempany@gmail.com"
 git config --global user.name "Mercedes"
 
 git add .
