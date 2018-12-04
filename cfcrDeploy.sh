@@ -17,9 +17,9 @@ bosh -n deploy -d cfcr-test cfcr-manifest.yml \
 
 cd ..
 
-git clone resource-gist updated-gist
+git clone resource-gist cfcr-vars
 
-cd updated-gist
+cd cfcr-vars
 echo $(date) > testme
 
 git config --global user.email "mercedes.kempany@sky.uk"
