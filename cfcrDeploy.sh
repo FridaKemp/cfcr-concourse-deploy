@@ -3,8 +3,10 @@
 set -e # fail fast
 set -x # print commands
 
-git clone cfcr-concourse updated-cfcr-concourse-deploy
-cd updated-cfcr-concourse-deploy
+#git clone cfcr-concourse updated-cfcr-concourse-deploy
+#cd updated-cfcr-concourse-deploy
+
+cd cfcr-concourse
 
 bosh -n deploy -d cfcr-test cfcr-manifest.yml \
  -o single-master.yml \
@@ -12,4 +14,17 @@ bosh -n deploy -d cfcr-test cfcr-manifest.yml \
  -v api-hostname=api-hostname \
  -o local-config-server.yml \
  --vars-store generated.yml
+
+cd ..
+
+git clone resource-gist updated-gist
+
+cd updated-gist
+echo $(date) > testme
+
+git config --global user.email "mercedes.kempany@sky.uk"
+git config --global user.name "Mercedes"
+
+git add .
+git commit -m "Test date file"
 
