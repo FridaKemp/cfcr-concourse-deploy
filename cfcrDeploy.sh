@@ -20,11 +20,13 @@ cd ..
 git clone resource-git cfcr-vars
 
 cd cfcr-vars
-echo $(date) > testme
+
+cp ../cfcr-concourse/generated.yml .
+#echo $(date) > testme
 
 git config --global user.email "mercedes.kempany@sky.uk"
 git config --global user.name "Mercedes"
 
 git add .
-git commit -m "Test date file"
+git commit -m "Cfcr generated"
 
