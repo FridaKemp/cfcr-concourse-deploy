@@ -17,7 +17,7 @@ bosh -n deploy -d cfcr-test cfcr-manifest.yml \
 
 cd ..
 
-git clone resource-gist cfcr-vars
+git clone resource-git cfcr-vars
 
 cd cfcr-vars
 echo $(date) > testme
