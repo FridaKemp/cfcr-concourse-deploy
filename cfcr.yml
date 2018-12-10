@@ -322,7 +322,6 @@ variables:
     alternative_names: []
     ca: kubo_ca
     common_name: kubelet.cfcr.internal
-    organization: system:nodes
   type: certificate
 - name: tls-kubelet-client
   options:
@@ -330,12 +329,11 @@ variables:
     common_name: kube-apiserver.cfcr.internal
     extended_key_usage:
     - client_auth
-    organization: system:masters
   type: certificate
 - name: tls-kubernetes
   options:
     alternative_names:
-    - 10.100.200.1
+    - ((api-hostname))
     - kubernetes
     - kubernetes.default
     - kubernetes.default.svc
@@ -343,7 +341,6 @@ variables:
     - master.cfcr.internal
     ca: kubo_ca
     common_name: master.cfcr.internal
-    organization: system:masters
   type: certificate
 - name: service-account-key
   type: rsa
